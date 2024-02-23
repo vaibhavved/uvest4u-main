@@ -1,0 +1,183 @@
+.investor-infobox{
+  background: #26272B;
+  border: 2px solid #313233;
+  border-radius: 16px;
+  padding: var(--spacing70);
+  margin-bottom: var(--spacing70);
+  @media screen and (max-width: 991.98px) {
+    padding: 20px;
+  }
+  @media screen and (max-width: 767.98px) {
+    padding: 10px;
+  }
+}
+
+.steps-box{
+  width: 100px;
+  height: 100px;
+  background: #1A191D;
+  border: 1px solid #0B0B0B;
+  box-shadow: 0px 15.4176px 28.2655px rgba(5, 29, 61, 0.06);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  @media screen and (max-width: 767.98px) {
+    width: 50px;
+    height: 100%;
+    padding: 10px;
+  }
+  .info-status-content {
+    font-size: 14px;
+    padding-top: 6px;
+    @media screen and (max-width: 567.98px) {
+      font-size: 10px;
+    }
+  } 
+  .edit-btn {
+    @media screen and (max-width: 567.98px) { 
+      display: flex;
+      padding-top: 5px;
+      gap: 3px;
+    }
+  }
+}
+.step-count{
+  width: 32px;
+  height: 32px;
+  font-weight: 600;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #373737;
+  border: 2px solid #5B5B5B;
+  border-radius: 50%;
+  margin-bottom: 12px;
+  font-size: 14px;
+  @media screen and (max-width: 991.98px) {
+    margin-bottom: 0;
+  }
+  .done &{
+    background: #4F46E5;
+    border-color: #4F46E5;
+    color: #fff !important;
+  }
+  .current &{
+    border-color: #4F46E5;
+  }
+}
+.info-status{
+  color: #5B5B5B;
+  font-size: 14px;
+  @media screen and (max-width: 767.98px) {
+    display: none; 
+  }
+  .done &{
+    background: linear-gradient(271.75deg, #635371 -14.22%, #EDEDF2 50.45%, #635371 116.9%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    font-weight: 600;
+  }
+  .current &{
+    color: #4F46E5;
+  }
+}
+.steps-contentwrap{
+  height: 100px;
+  flex-grow: 1;
+  .investor-infobox.active &, .steps-wizard:last-child.current &{
+    height: auto;
+  }
+  @media screen and (max-width: 767.98px) {
+    height: auto;
+  }
+}
+.steps-contentblock{
+  background: #1A191D;
+  border: 1px solid #0B0B0B;
+  box-shadow: 0px 15.4176px 28.2655px rgba(5, 29, 61, 0.06);
+  border-radius: 12px;
+  padding: 20px;
+  min-height: 100%;
+}
+.steps-wizard{
+  gap: 32px;
+  padding-bottom: 40px;
+  position: relative;
+  @media screen and (max-width: 991.98px) {
+    gap: 12px;
+  }
+  @media screen and (max-width: 767.98px) {
+    padding-bottom: 10px;
+  }
+  &:not(:last-child){
+    &::after{
+      width: 2px;
+      content: '';
+      display: block;
+      position: absolute;
+      height: 100%;
+      top: 0;
+      bottom: 0;
+      left: 49px;
+      background: #0B0B0B;
+      z-index: 0;
+      @media screen and (max-width: 767.98px) {
+        left: 24px;
+      }
+    }
+  }
+  &.done{
+    &::after{
+      background: #4F46E5;
+    }
+    cursor: pointer;
+  }
+  .mat-mdc-radio-group{
+    margin-top: 15px;
+  }
+  &.current{
+    z-index: 1;
+    cursor: pointer;
+  }
+  &:not(.current):not(.done){
+    .steps-contentblock{
+      display: flex;
+      align-items: center;
+      opacity: 0.3;
+    }
+  }
+  &:not(.current){
+    .mat-mdc-radio-button{
+      display: none;
+      .investor-infobox.active &{
+        display: block;
+      }
+    }
+  }
+  
+  &.done{
+    .mat-mdc-radio-checked{
+      display: block;
+    }
+  }
+}
+.analysis-btns{
+  gap: 40px;
+  position: relative;
+  @media screen and (max-width: 767.98px) {
+    gap: 12px;
+  }
+}
+mat-progress-spinner {
+  @media screen and (max-width:767.98px) { 
+    top: 40px;
+  }
+}

@@ -1,0 +1,77 @@
+.contact-section{
+  padding: var(--spacing100) 0 var(--spacing70);
+}
+.page-titlewrap{
+  max-width: 1110px;
+  margin: 0 auto var(--spacing70);
+  @media screen and (max-width: 767.98px) {
+    margin-bottom: 30px;
+  }
+}
+.contact-box{
+  position: relative;
+  &::before{
+    content: '';
+    display: block;
+    left: -1px;
+    right: -1px;
+    top: -1px;
+    bottom: -1px;
+    background: var(--conicGradient);
+    position: absolute;
+    border-radius: 16px;
+  }
+}
+.contact-info{
+  background: #1A191E;
+  padding: 70px 50px 100px;
+  border-radius: 16px 0 0 16px;
+  position: relative;
+  z-index: 1;
+  @media screen and (max-width: 1199.98px) {
+    padding: 50px 30px;
+  }
+  @media screen and (max-width: 767.98px) {
+    padding: 20px 15px;
+    border-radius: 16px 16px 0 0;
+  }
+}
+
+.contact-form{
+  padding: 70px 70px 100px 42px;
+  background: #0E0C15 linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 100%);
+  border-radius: 0 16px 16px 0;
+  position: relative;
+  z-index: 1;
+  @media screen and (max-width: 1199.98px) {
+    padding: 50px 30px;
+  }
+  @media screen and (max-width: 767.98px) {
+    padding: 20px 15px;
+    border-radius:  0 0 16px 16px;
+  }
+}
+
+.submit-button{
+  text-align: right;
+}
+
+.contact-infobox{
+  color: #fff;
+  margin-top: 50px;
+  @media screen and (max-width: 767.98px) {
+    margin-top: 30px;
+  }
+}
+
+.timing-bx{
+  gap: 15px 0;
+  flex-grow: 1;
+  span{
+    line-height: 1.5;
+    width: 100%;
+    @media screen and (min-width: 992px) {
+      width: 50%;
+    }
+  }
+}

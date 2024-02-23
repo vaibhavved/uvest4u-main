@@ -1,0 +1,219 @@
+
+.pagetitle-box{
+  margin-bottom: 50px;
+  @media screen and (max-width: 767.98px) {
+    margin-bottom: 30px;
+  }
+}
+.breadcrumb-nav{
+  gap: 32px;
+  margin-bottom: 40px;
+  a{
+    position: relative;
+    color: #EDEDF2;
+    text-decoration: none;
+    &::after{
+      content: '/';
+      display: block;
+      position: absolute;
+      color: var(--lighterText);
+      font-weight: 700;
+      line-height: 1;
+      right: -18px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+blockquote{
+  padding: 32px;
+  margin-left: 0;
+  margin-right: 0;
+  border-left: 2px solid #D028FA;
+  line-height: 1.6;
+  overflow: hidden;
+  position: relative;
+  @media screen and (max-width: 767.98px) {
+    padding: 15px;
+  }
+  &::before{
+    content: '';
+    display: block;
+    width: 104px;
+    height: 104px;
+    background:  linear-gradient(56.44deg, rgba(236, 57, 255, 0) -32.87%, #EC39FF 48.17%, rgba(236, 57, 255, 0) 138.11%),
+    radial-gradient(23.51% 23.51% at 50% 50%, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+    position: absolute;
+    left: -60px;
+    opacity: 0.16;
+    border-radius: 50%;
+    filter: blur(12px);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -2;
+  }
+}
+.news-article{
+  padding-bottom: 50px;
+  @media screen and (max-width: 767.98px) {
+    padding-bottom: 30px;
+  }
+}
+.news-sourceswrap{
+  position: relative;
+  padding-top: 50px;
+  @media screen and (max-width: 767.98px) {
+    padding-top: 30px;
+  }
+  .title{
+    margin-bottom: 8px;
+  }
+  &::before{
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: radial-gradient(9099.97% 2595579.94% at 53.76% -0.04%, #A77FB3 0%, rgba(154, 108, 168, 0.6) 100%);
+    position: absolute;
+    top: 0;
+  }
+}
+.news-sourceslink{
+  flex-direction: column;
+  gap: 8px;
+  a{
+    display: block;
+  }
+}
+.investment-ideabanner{
+ padding: 1px 1px 0;
+  position: relative;
+  margin-top: var(--spacing70);
+  &:before{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, #A77FB3 0%, rgba(154, 108, 168, 0.4) 100%),
+linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: -1;
+    border-radius: 12px 12px 0 0;
+  }
+
+}
+.investment-ideacontent{
+  position: relative;
+  z-index: 1;
+  // max-width: 754px;
+  margin: 0 auto;
+  color: #9A98B9;
+  background: #0e0c15;
+  padding: 120px 0;
+  border-radius: 12px 12px 0 0;
+  @media screen and (max-width: 767.98px) {
+    padding: 70px 0;
+  }
+  &::after{
+    content: '';
+    display: block;
+    filter: blur(4px);
+    background: url('../../../assets/images/news-banner.png') no-repeat;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-position: 50% calc(100% + 70px);
+    z-index: 1;
+  }
+  *{
+    max-width: 754px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 2;
+  }
+  h3{
+    font-size: 56px;
+    margin-bottom: 16px;
+    @media screen and (max-width: 1199.98px) {
+      font-size: 48px;
+    }
+    @media screen and (max-width: 991.98px) {
+      font-size: 40px;
+    }
+    @media screen and (max-width: 991.98px) {
+      font-size: 30px;
+    }
+  }
+  p{
+    margin-bottom: var(--spacing32);
+  }
+}
+.font-68{
+  font-size: 65px;
+  @media screen and (max-width: 1199.98px) {
+    font-size: 54px;
+  }
+  @media screen and (max-width: 991.98px) {
+    font-size: 42px;
+  }
+  @media screen and (max-width: 991.98px) {
+    font-size: 34px;
+  }
+}
+.resources-box{
+  background: var(--gradient);
+  padding: 50px 30px 50px 50px;
+  gap: 56px;
+  border-radius: 16px;
+  @media screen and (max-width: 1199.98px) {
+    gap: 24px;
+    padding: 20px;
+  }
+  @media screen and (max-width: 767.98px) {
+    padding: 15px;
+  }
+}
+.resourcebx-left{
+  width: 40%;
+  @media screen and (max-width: 767.98px) {
+    width: 100%;
+  }
+}
+.resource-image{
+  @media screen and (max-width: 767.98px) {
+    text-align: center;
+  }
+}
+.resourcebx-right{
+  width: calc(60% - 56px);
+  color: #AC6AFF;
+  @media screen and (max-width: 1199.98px) {
+    width: calc(60% - 24px);
+  }
+  @media screen and (max-width: 767.98px) {
+    width: 100%;
+  }
+  li {
+    margin-bottom: 6px;
+  }
+  a{
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+.mb-40{
+  margin-bottom: var(--spacing40);
+}
+.resource-image{
+  img{
+    border-radius: 35px;
+    border: 1px solid rgba(255, 255, 255, 0.17);
+  }
+}

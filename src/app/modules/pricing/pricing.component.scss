@@ -1,0 +1,51 @@
+
+.pricing-wrap{
+  @media screen and (max-width: 767.98px) {
+    gap: 20px;
+  }
+}
+.pricing-plan{
+  padding: var(--spacing40);
+  @media screen and (max-width: 767.98px) {
+    margin-left: 0;
+    max-width: 100%;
+  }
+}
+.pricing-section{
+  padding: var(--spacing90) 0 var(--spacing100);
+}
+
+.smalltext{
+  color: #FFFFFF80;
+}
+.plans-list{
+  padding-left: 0;
+  margin-bottom: 10px;
+  li{
+    padding: var(--spacing20) 0;
+    color: #fff;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    &::before{
+      content: '';
+      display: block;
+      background: url('../../../assets/images/icons/check-filledcircle.svg') no-repeat;
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+    }
+    &:not(:last-child){
+      border-bottom: 1px solid rgba(255,255, 255, 0.10);
+    }
+  }
+}
+.mt_loader{
+  position: relative !important;
+  left: 35%;
+
+  @media screen and (max-width:767.98px){
+    margin-top: 50px;
+    left: 45%;
+  }
+}

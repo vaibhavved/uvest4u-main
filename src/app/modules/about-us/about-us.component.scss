@@ -1,0 +1,203 @@
+$appBG: #0E0C15;
+.advantages-wrapper{
+  position: relative;
+  padding: var(--spacing100) 0;
+  .section-title{
+    max-width: 727px;
+    margin: auto auto 64px;
+    @media screen and (max-width: 767.98px) {
+      margin-bottom: 30px;
+    }
+  }
+  &::before, &::after{
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 320px;
+    top: 0px;
+  }
+  &::before{
+    background: url('../../../assets/images/about-bg.png') no-repeat;
+    background-position: center 60%;
+    z-index: 1;
+  }
+  &::after{
+    background: $appBG;
+    filter: blur(200px);
+    z-index: -1;
+  }
+  .container{
+    position: relative;
+    z-index: 1;
+  }
+  overflow: hidden;
+}
+.topic-advantage{
+  --gap: 74px;
+  --columns: 2;
+  gap: var(--gap);
+  @media screen and (max-width: 991.98px) {
+    --gap: 24px;
+  }
+  @media screen and (max-width: 991.98px) {
+    --columns: 1;
+  }
+}
+.benefits-img{
+  padding: 1px;
+  position: relative;
+  display: inline-flex;
+
+  &::before{
+    content: '';
+    display: block;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, #A77FB3 0%, rgba(154, 108, 168, 0.4) 100%);
+    border-radius: 18px;
+    position: absolute;
+    z-index: -1;
+  }
+  img{
+    background: $appBG;
+    border-radius: 18px;
+  }
+}
+.benefits-bx{
+  width: calc((100% / var(--columns)) - var(--gap) + (var(--gap) / var(--columns)));
+}
+.bximg-wrapper{
+  @media screen and (max-width: 767.98px) {
+    text-align: center;
+  }
+}
+.box-blockwrap{
+  --gap: 24px;
+  --gapY: 30px;
+  --columns: 2;
+  gap: var(--gapY) var(--gap);
+  @media screen and (max-width: 767.98px) {
+    --columns: 1;
+    --gapY: 15px;
+  }
+}
+.about-banner{
+  padding: var(--spacing100) 0;
+  color: #ADA8C3;
+}
+.box-block{
+  padding: var(--spacing40);
+  width: calc((100% / var(--columns)) - var(--gap) + (var(--gap) / var(--columns)));
+  min-height: 120px;
+}
+.font-56{
+  font-size: var(--font56);
+}
+.about-rightbx{
+  max-width: 478px;
+  color: #757185;
+  line-height: 1.375;
+  @media screen and (max-width: 767.98px) {
+    max-width: 100%;
+    margin-top: 10px;
+  }
+}
+.about-infobox{
+  &:not(:last-child){
+    margin-bottom: 160px;
+    @media screen and (max-width: 767.98px) {
+      margin-bottom: 50px;
+    }
+  }
+  &:nth-child(even){
+    flex-direction: row-reverse;
+  }
+}
+.listing-box{
+  counter-reset: my-sec-counter;
+  gap: 24px;
+  li{
+    display: flex;
+    gap: 24px;
+    &:not(:last-child){
+      margin-bottom: 32px;
+    }
+    .counter{
+      background: $appBG linear-gradient(180deg, rgba(115, 23, 146, 0.74) 0%, rgba(20, 5, 39, 0.27) 100%);
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 55px;
+      height: 55px;
+      border-radius: 16px;
+      position: relative;
+      margin-left: 1px;
+      font-weight: bold;
+      font-size: 30px;
+      &:before{
+        content: counter(my-sec-counter);
+        counter-increment: my-sec-counter;
+        background: linear-gradient(271.75deg, #635371 -14.22%, #EDEDF2 50.45%, #635371 116.9%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+      &::after{
+        content: "";
+        display: block;
+        position: absolute;
+        left: -1px;
+        right: -1px;
+        top: -1px;
+        bottom: -1px;
+        background: linear-gradient(180deg, #A77FB3 0%, rgba(154, 108, 168, 0.4) 100%);
+        z-index: -1;
+        border-radius: inherit;
+      }
+    }
+  }
+}
+.maxw-1067{
+  max-width: 1067px;
+}
+.infobox{
+  margin-bottom: var(--spacing70);
+}
+.about-imgbx{
+  display: inline-flex;
+  padding-right: 48px;
+  position: relative;
+  &::before, &:after{
+    width: 24px;
+    content: '';
+    position: absolute;
+    display: block;
+    background: #1B1B2E;
+    border-radius: 0 20px 20px 0;
+    right: 24px;
+  }
+  &::before{
+    top: 45px;
+    bottom: 45px;
+  }
+  &::after{
+    top: 69px;
+    bottom: 69px;
+    opacity: 0.5;
+    right: 0;
+  }
+}
+.aboutus-page{
+  margin-bottom: var(--spacing70);
+}
+.about-leftimg{
+  @media screen and (max-width: 767.98px) {
+    text-align: center;
+  }
+}

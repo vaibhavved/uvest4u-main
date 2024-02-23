@@ -1,0 +1,97 @@
+<section class="contact-section">
+  <div class="container">
+    <nav class="breadcrumb-nav flex flex-wrap font-inter">
+      <a href="javascript:void(0)" routerLink="/">Home</a>
+      <span>Contact Us</span>
+    </nav>
+    <div class="page-titlewrap text-center font-20 block">
+      <h1 class="text-primary mb-24 font-48 fw-semibold">Let's Connect</h1>
+      <h2 class="font-32 mb-24 fw-semibold">Unlock Your Investment Potential</h2>
+      <p>Have questions or need support? Our friendly and knowledgeable team is here to help. Reach out to us through
+        our contact form or via email, and we’ll be in touch to assist you in any way we can.</p>
+    </div>
+    <div class="contact-box flex flex-wrap">
+      <div class="w-50 contact-info font-inter">
+        <h2 class="text-primary font-48 mb-20">Contact Us</h2>
+        <span>Got questions? Ideas? Fill out the form below to get our proposal.</span>
+        <div class="contact-infobox font-24">
+          <div class="contact-field flex">
+            <span class="contact-ic dark-gradient flex items-center justify-center">
+              <img src="assets/images/icons/Pin.svg" alt="Pin" width="24" height="24" />
+            </span>
+            <div>6 Liberty Square, Boston MA 02110</div>
+          </div>
+          <div class="contact-field flex">
+            <span class="contact-ic dark-gradient flex items-center justify-center">
+              <img src="assets/images/icons/email-filled.svg" alt="Email" width="24" height="24" />
+            </span>
+            <div>info&#64;pgellc.com</div>
+          </div>
+          <div class="contact-field flex">
+            <span class="contact-ic dark-gradient flex items-center justify-center">
+              <img src="assets/images/icons/call.svg" alt="Phone Number" width="24" height="24" />
+            </span>
+            <div>617-275-2444</div>
+          </div>
+          <div class="contact-field flex">
+            <span class="contact-ic dark-gradient flex items-center justify-center ">
+              <img src="assets/images/icons/timer.svg" alt="Phone Number" width="24" height="24" />
+            </span>
+            <div class="flex font-16 timing-bx flex-wrap">
+              <span>Monday - Friday:<br />09:00 - 20:00</span>
+              <span>Sunday & Saturday:<br />10:30 - 22:00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-50 contact-form">
+        <form [formGroup]="contactDetail" #f="ngForm" autocomplete="off">
+          <div class="form-group">
+            <label class="form-label">Full Name*</label>
+            <input class="form-control" name="fullName" id="fullName" formControlName="name" placeholder="Enter Full Name" autocomplete="fullName"/>
+            @if(submitted() && contactDetail.controls['name'].errors && contactDetail.controls['name'].errors.required){
+            <div class="validation_msg">Please enter Full Name</div>
+            }
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email*</label>
+            <input class="form-control" name="emailAdd" id="emailAdd" formControlName="email" placeholder="Enter Email Address" autocomplete="emailAdd" />
+            @if(submitted() && contactDetail.controls['email'].errors &&
+            contactDetail.controls['email'].errors.required){
+            <div class="validation_msg">Please enter Email</div>
+            }
+            @if(submitted() && contactDetail.controls['email'].errors &&
+            contactDetail.controls['email'].errors.pattern){
+            <div class="validation_msg">Please enter valid email</div>
+            }
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone*</label>
+            <input class="form-control" name="phoneNo" id="phoneNo" formControlName="phone" placeholder="Enter Phone Number" autocomplete="phoneNo"/>
+            @if(submitted() && contactDetail.controls['phone'].errors &&
+            contactDetail.controls['phone'].errors.required){
+            <div class="validation_msg">Please enter Phone No</div>
+            }
+            @if(submitted() && contactDetail.controls['phone'].errors &&
+            contactDetail.controls['phone'].errors.pattern){
+            <div class="validation_msg">Please enter valid Phone No</div>
+            }
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message*</label>
+            <textarea placeholder="Type Your Message" name="msg" id="msg" formControlName="message" class="form-control" autocomplete="msg"
+              rows="5"></textarea>
+            @if(submitted() && contactDetail.controls['message'].errors &&
+            contactDetail.controls['message'].errors.required){
+            <div class="validation_msg">Please enter Message</div>
+            }
+          </div>
+          <div class="submit-button">
+            <button mat-stroked-button color="primary" (click)="contact_us()" [disabled]="submitDisable()">send
+              message</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

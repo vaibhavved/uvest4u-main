@@ -1,0 +1,62 @@
+<div class="page-wrapper">
+  <div class="container">
+    <nav class="breadcrumb-nav flex align-items-start font-inter">
+      <a href="javascript:void(0)" routerLink="/">Home</a>
+      <a href="javascript:void(0)" routerLink="/news">News</a>
+      <span>{{blogDetail.title}}</span>
+    </nav>
+    <article class="content-wrapper news-article block">
+      <div class="pagetitle-box">
+        <h1 class="font-68 mb-20">{{blogDetail.title}}</h1>
+        <span class="publish-date text-lighter">
+          {{
+          blogDetail.createDate
+          ? (blogDetail.createDate | date : "d" | daySuffix)
+          : ""
+          }}
+          {{ blogDetail.createDate | date : " MMM YYYY, hh:mm a" }}
+        </span>
+      </div>
+      <div>
+        <img src="assets/images/blog/{{blogImage}}" alt="Global Stock Market Report" width="1200" height="640" />
+      </div>
+      <blockquote>The global stock market experienced mixed results today, with the US reporting solid economic growth
+        and awaiting key indicators such as the Federal Reserve's decision, earnings reports, and economic data. The
+        Financial Times also reported a dip in US inflation, which is seen as a boost for President Biden's
+        administration.</blockquote>
+      <!--<p>The US stock market has been closely watching economic indicators as it seeks to gauge the recovery from the COVID-19 pandemic. The country's economy grew at a solid pace, as reported by the US Department of Commerce. This positive growth reflects the success of the ongoing vaccination campaigns and the gradual reopening of businesses. It is an encouraging sign for investors, and it may contribute to an increase in investor confidence.</p>
+      <p>However, the US stock market is currently facing multiple challenges that may impact its performance. The Federal Reserve's decisions regarding interest rates and monetary policy are critical factors that can significantly influence investor sentiment. Investors are eagerly awaiting the outcomes of the Federal Reserve's meeting, as any unexpected announcements can lead to market volatility.</p>
+      <p>In addition to the Federal Reserve's decision, the upcoming earnings season will also play a crucial role in determining the direction of the stock market. Companies will be reporting their financial performance for the previous quarter, providing insights into the current state of the economy and individual sectors. Positive earnings reports can boost investor confidence and drive the stock market higher, while disappointing results may cause a decline.</p>
+      <p>Furthermore, economic data releases such as job reports, inflation figures, and consumer sentiment surveys can impact market sentiment and guide investment decisions. Hence, market participants are keenly monitoring these releases to assess the health of the economy and make informed investment choices.</p>
+      <p>The Financial Times' report on a dip in US inflation is seen as a positive development for President Biden's administration. Lower inflation can help stimulate economic growth by increasing consumers' purchasing power. It also provides the Federal Reserve with more flexibility in their monetary policy decisions, potentially reducing the need for aggressive tightening.</p>
+      <p>In conclusion, the global stock market witnessed mixed results today, with the US reporting solid economic growth. However, challenges lie ahead as investors await the Federal Reserve's decision, earnings reports, and economic data releases. The outcomes of these key events will have a significant impact on the performance and direction of the US stock market.</p>
+      <p class="text-white">This blog post was written by an AI engine.</p> -->
+      <div class="light" [innerHTML]="dailyBlogSplited[0]?dailyBlogSplited[0]:blogDetail.message"></div>
+    </article>
+    <section class="news-sourceswrap">
+      <section>
+        <div class="container">
+          <div class="resources-box flex flex-wrap">
+            <div class="resourcebx-left">
+              <h2 class="font-48 fw-semibold mb-40">Sources for My Research Include the Following:</h2>
+              <div class="resource-image">
+                <img src="assets/images/banner/image-7.jpg" alt="My Research" />
+              </div>
+            </div>
+            <div class="resourcebx-right flex items-center">
+              <ol>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="investment-ideabanner font-inter">
+        <div class="investment-ideacontent text-center">
+          <h3 class="font-56 text-primary">Register and Receive Investment Ideas</h3>
+          <p>Lorem ipsum dolor sit amet.</p>
+          <button mat-flat-button color="primary">Register Now</button>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

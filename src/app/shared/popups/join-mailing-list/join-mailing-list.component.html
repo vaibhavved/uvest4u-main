@@ -1,0 +1,62 @@
+
+<div class="mb-30 text-center"><img src="assets/images/bell.png" alt="Notification" /></div>
+
+<h4 class="text-primary text-center font-32 mb-50">Join our mailing list, it's FREE</h4>
+<form [formGroup]="contactDetail" autocomplete="off">
+    <div class="mb-50">
+    <div class="form-group mb-70">
+        <label class="form-label">Email*</label>
+        <div class="position-relative">
+            <input type="text" name="email" id="email" formControlName="email" class="form-control" required
+                data-error="Please enter your Email" placeholder="Enter Email Address">
+        </div>
+        <div class="alert alert-error p-0 m-0">
+            @if(submitted() && contactDetail && contactDetail.controls['email'] &&
+            contactDetail.controls['email'].errors &&
+            contactDetail.controls['email'].errors['required']){
+            <div class="validation_msg">Email is required.</div>
+            }
+            @if(submitted() && contactDetail && contactDetail.controls['email'] &&
+            contactDetail.controls['email'].errors &&
+            contactDetail.controls['email'].errors['pattern']){
+            <div class="validation_msg">Enter Valid Email Address</div>
+            }
+        </div>
+    </div>
+   <div class="flex flex-column gap-20">
+    <mat-checkbox formControlName="daily" class="filled-radio" >Send me daily investments ideas for FREE</mat-checkbox>
+    <mat-checkbox formControlName="weekly" class="filled-radio">Send me weekly market recaps for FREE</mat-checkbox>
+    <mat-checkbox [formControlName]="(route.url == '/home')?'today':'investor'" class="filled-radio">Just show me today’s FREE investments idea</mat-checkbox>
+</div>
+</div>
+    <!-- <div class="col-lg-12">
+        <div class="form-check">
+            <label class="form-check-label" for="dailyCheckDefault">
+                <input class="form-check-input" type="checkbox" id="dailyCheckDefault" formControlName="daily">
+                Send me daily investments ideas for FREE
+            </label>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="form-check">
+            <label class="form-check-label" for="weeklyCheckDefault">
+                <input class="form-check-input" type="checkbox" id="weeklyCheckDefault"
+                    formControlName="weekly">
+                Send me weekly market recaps for FREE
+            </label>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="form-check">
+            <label class="form-check-label" for="investorCheckDefault">
+                <input class="form-check-input" type="checkbox" id="investorCheckDefault"
+                    formControlName="investor">
+                Just show me what type of investor I am for FREE
+            </label>
+        </div>
+    </div> -->
+    <div class="flex flex-wrap justify-center btn-wrapper">
+        <a mat-flat-button color="primary" routerLink="/" (click)="dialog.closeAll()">cancel</a>
+        <button type="submit"  mat-stroked-button color="primary" (click)="captureDetails()">Submit</button>
+    </div>
+</form>

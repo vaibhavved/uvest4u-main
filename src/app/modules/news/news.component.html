@@ -1,0 +1,97 @@
+<div class="page-wrapper">
+  <section class="pricing-section">
+    <div class="container">
+      <nav class="breadcrumb-nav flex flex-wrap font-inter">
+        <a href="javascript:void(0)" routerLink="/">Home</a>
+        <span>News</span>
+      </nav>
+      <div class="flex flex-wrap items-center pricing-wrap">
+        <div class="w-50 block">
+          <h1 class="font-48 mb-24 text-primary">
+            Check Out Our Latest AI News
+          </h1>
+          <p class="font-20">
+            We are constantly combing the world for news that could effect your
+            investment portfolio.
+          </p>
+        </div>
+
+        <div class="w-50">
+          <div class="pricing-plan gradient-bx maxw-448 ml-auto text-center">
+            <span class="gradient-overlay"></span>
+            <span class="edit-ic mb-24">
+              <img src="assets/images/icons/edit.svg" alt="News" />
+            </span>
+            <h2 class="text-primary fw-normal mb-24">
+              Register and receive Investment Ideas
+            </h2>
+
+            <button mat-flat-button color="primary">Register Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="news-banner">
+    <div class="container">
+      <div class="news-bannerbx flex flex-wrap">
+        <div class="newsbanner-content w-50">
+          @if(getBlogs$ | async; as blogs){ @if(blogs && blogs[0]){
+          <h2>{{ blogs[0].title }}</h2>
+          <span class="published-date fw-light">
+            {{ blogs[0].createDate | date : "d" | daySuffix }}
+            {{
+            blogs[0].createDate
+            | date
+            : "
+            MMM YYYY, hh:mm a"
+            }}</span>
+          <p class="font-inter line-clamp2" [innerHTML]="blogs[0].message"></p>
+          <a class="" href="Javascript:void(0);" (click)="redirectToDetail(blogs[0], 0)">Read More</a>
+          } }@else {
+          <mat-progress-spinner [mode]="'indeterminate'" class="mt_loader"></mat-progress-spinner>
+          }
+        </div>
+        <div class="newsbanner-image w-50">
+          <img src="assets/images/blog/{{ blogImages[0] }}"
+            alt="Global Stock Market Report: Mixed Results as US Reports Solid Growth, Fed and Economic Data Awaited" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="">
+    <div class="container">
+      <h2 class="text-primary fw-semibold font-48 d-inline-block">
+        Other News
+      </h2>
+      <div class="news-wrapper flex flex-wrap">
+        @if(getBlogs$ | async; as blogs){ @for(blog of blogs;track blog.id){
+        @if($index!=0){
+        <a href="javascript:void(0)" class="news-box" (click)="redirectToDetail(blog, $index)">
+          <div class="news-bximg">
+            <img src="assets/images/blog/{{ blogImages[$index] }}"
+              alt="Global Stock Markets React to Solid U.S. Growth" />
+          </div>
+          <div class="news-boxcontent font-inter block">
+            <span class="published-date">{{
+              blog.createDate
+              ? (blog.createDate | date : "d" | daySuffix)
+              : ""
+              }}
+              {{ blog.createDate | date : " MMM YYYY, hh:mm a" }}</span>
+            <h6 class="font-20 text-white fw-semibold news-title line-clamp2">
+              {{ blog.title }}
+            </h6>
+            <p class="line-clamp2 text-lighter" [innerHTML]="blog.message"></p>
+          </div>
+        </a>
+        }
+        }@empty {
+        <mat-progress-spinner [mode]="'indeterminate'"></mat-progress-spinner>
+        } }
+      </div>
+    </div>
+  </section>
+</div>

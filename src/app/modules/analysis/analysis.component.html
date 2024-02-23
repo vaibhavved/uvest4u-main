@@ -1,0 +1,52 @@
+<div class="page-wrapper">
+  <section class="">
+    <div class="container">
+      <nav class="breadcrumb-nav flex flex-wrap font-inter">
+        <a href="javascript:void(0)" routerLink="/">Home</a>
+        <a href="javascript:void(0)" routerLink="/investor-type">What Type of Investor Are You?</a>
+        <span>Analysis</span>
+      </nav>
+      <h1 class="d-inline-block">Our Analysis</h1>
+      <div class="analysis-box">
+        <div class="text-primary content-wrapper">
+          <div class="text-primary content-wrapper"
+            [innerHTML]="analisysDetail.content.replace('/\n\n/g', '<p><br /></p>')" style="white-space: break-spaces;">
+          </div>
+          <!-- <p>Based on your answers, it appears that you have a conservative risk tolerance and prefer to take a cautious approach to investments. This means that you prioritize the preservation of capital rather than seeking high returns.</p>
+        <p>In terms of your time horizon, it is important to note that you did not provide any specific information about your investment goals or objectives. However, based on your conservative risk tolerance, it is likely that your time horizon is medium to long-term, typically ranging from 5 to 10 years.</p>
+        <p>Given your conservative risk tolerance, a strategic asset allocation might typically include a higher proportion of fixed income investments such as bonds or cash equivalents, which are generally considered less risky compared to equities. However, since you have not provided any specific information about your investment goals, it is important to note that this is a general suggestion and may not be suitable for your specific needs. As a reminder, this is not a recommendation or advice, but rather a suggestion for further discussion with a financial advisor.</p>
+        <p>A potential strategic asset allocation for a conservative investor could be as follows: </p>
+        <div class="flex flex-wrap analytics-bx">
+          <div><img src="assets/images/icons/analysis-2.svg" alt="Analysis" width="20" height="16" />Fixed Income: 60%</div>
+          <div><img src="assets/images/icons/analysis-2.svg" alt="Analysis" width="20" height="16" />Equities: 30%</div>
+          <div><img src="assets/images/icons/analysis-2.svg" alt="Analysis" width="20" height="16" />Cash: 10%</div>
+        </div>
+        <p>However, it is important to review and adjust this allocation based on your specific goals, risk tolerance, and time horizon.</p>
+        <p>Additionally, a tactical allocation can be further implemented within the strategic allocation, based on market conditions and opportunities. This allows for short-term adjustments to take advantage of potential market trends. The tactical allocation should be reviewed regularly and adjusted as needed, based on changes in market conditions.</p>
+        <p>In summary, based on your response, you appear to have a conservative risk tolerance and a medium to long-term time horizon. It is important to further discuss your investment goals and objectives with a financial advisor in order to determine the most suitable allocation for your individual circumstances.</p> -->
+        </div>
+        <div class="flex flex-wrap justify-center analysis-btns secondary-btn">
+          <a mat-flat-button href="javascript:void(0)" routerLink="/investor-type" color="primary">Back</a>
+          <a mat-stroked-button href="javascript:void(0)" color="primary" routerLink="/">close</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <section class="mt-70">
+    <div class="container">
+      <div class="infobox dark-gradient">
+        <div class="block text-primary">
+          <p>The information on the <a href="javascript:void(0)" routerLink="/investor-type">Uvest4u.com</a> website and
+            inside our platform is intended for educational purposes and is not to be construed as investment advice.
+            Trading the financial markets carries a high level of risk and may not be suitable for all investors. Before
+            trading, you should carefully consider your investment objectives, experience, and risk appetite. Only trade
+            with money you are prepared to lose. Like any investment, there is a possibility that you could sustain
+            losses of some or all of your investment whilst trading. You should seek independent advice before trading
+            if you have any doubts. Past performance in the markets is not a reliable indicator of future performance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

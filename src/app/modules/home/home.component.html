@@ -1,0 +1,255 @@
+<section class="banner-wrapper text-center">
+  <img src="assets/images/Landing.jpg" alt="Overlay" class="banner-overlay" />
+
+  <div class="container">
+    <div class="mb-100 bannertext">
+      <h1 class="font-60 text-primary font-secondary mb-24 main-title">Empower Your Financial Future with AI-Driven DIY
+        Investing</h1>
+      <p class="mb-32 font-20 font-secondary">Harness the power of Al to discover investment opportunities and grow your
+        money, all at your own pace.</p>
+      <!-- <button mat-flat-button color="primary">Primary</button> -->
+      <a mat-flat-button href="javascript:void(0)" color="primary">Register Now</a>
+    </div>
+    <div class="banner-posture">
+      <img src="assets/images/img1.png" alt="Empower Your Financial Future" width="1024" height="470" />
+      <div class="black-shadow"></div>
+    </div>
+  </div>
+</section>
+
+<section class="infobox-section">
+  <div class="container">
+    <div class="infobox-wrapper flex flex-wrap">
+      <div class="left-box">
+        <div class="max-w-440">
+          @if(getDailyBlog$ | async; as dailyBlog){
+            <h2 class="text-primary font-48 fw-normal font-secondary mb-24">Free Daily Investment Idea</h2>
+            <p class="text-primary  font-secondary mb-24">{{dailyBlog?.title}}</p>
+            <div class="infobox-content block mb-40">
+              <p [innerHTML]="dailyBlog?.partialContent"></p>
+            </div>
+            <a href="javascript:void(0)" (click)="redirectToinvestmentIdea(dailyBlog)" mat-stroked-button color="primary">Read More</a>
+          }@else {
+            <mat-progress-spinner [mode]="'indeterminate'"></mat-progress-spinner>
+          }
+
+        </div>
+      </div>
+      <div class="right-box">
+        <div class="img-box">
+          <img src="assets/images/img2.png" alt="Free Daily Investment Idea" width="533" height="576" />
+        </div>
+      </div>
+    </div>
+    <div class="infobox-wrapper flex flex-wrap">
+      <div class="left-box">
+        <div class="max-w-440">
+          <h2 class="text-primary font-48 fw-normal font-secondary  mb-24">What Type of Investor Are You?</h2>
+          <div class="infobox-content block mb-40">
+            <p>Building a balanced portfolio requires understanding your comfort with risk as well as the time you have
+              to invest before you need access to your money. Understanding if you are...</p>
+          </div>
+          <a [routerLink]="['/investor-type']" mat-stroked-button color="primary">Yes Show Me</a>
+        </div>
+      </div>
+      <div class="right-box">
+        <div class="img-box">
+          <img src="assets/images/img3.png" alt="What Type of Investor Are You?" width="533" height="576" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="explore-section">
+  <div class="container">
+    <h2 class="text-primary mb-20 text-center font-48 fw-normal">Explore the latest market updates</h2>
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th class="dark-gradient">Symbol</th>
+            <th class="text-center dark-gradient" style="min-width: 300px;">Last Price</th>
+            <th class="dark-gradient">Change</th>
+            <th class="dark-gradient">%Change</th>
+            <th class="dark-gradient"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>INTC</td>
+            <td class="text-center">$43.65</td>
+            <td class="text-danger">-5.90</td>
+            <td class="text-danger">-11.91%</td>
+            <td class="text-right">
+              <div class="market-upsdown"><img src="assets/images/success-graph.png" alt="Success" width="116"
+                  height="40" /></div>
+            </td>
+          </tr>
+          <tr>
+            <td>AMD</td>
+            <td class="text-center">$177.25</td>
+            <td class="text-danger">-3.08</td>
+            <td class="text-danger">-1.71%</td>
+            <td class="text-right">
+              <div class="market-upsdown"><img src="assets/images/lower-graph.png" alt="Lower" width="116"
+                  height="40" /></div>
+            </td>
+          </tr>
+          <tr>
+            <td>TSLA</td>
+            <td class="text-center">$183.25</td>
+            <td class="text-success">+0.62</td>
+            <td class="text-success">+0.34%</td>
+            <td class="text-right">
+              <div class="market-upsdown"><img src="assets/images/success-graph.png" alt="Success" width="116"
+                  height="40" /></div>
+            </td>
+          </tr>
+          <tr>
+            <td>MARA</td>
+            <td class="text-center">$17.85</td>
+            <td class="text-success">+1.58</td>
+            <td class="text-success">+9.71%</td>
+            <td class="text-right">
+              <div class="market-upsdown"><img src="assets/images/success-graph.png" alt="Success" width="116"
+                  height="40" /></div>
+            </td>
+          </tr>
+          <tr>
+            <td>SOFI</td>
+            <td class="text-center">$7.62</td>
+            <td class="text-danger">-0.03</td>
+            <td class="text-danger">-0.039%</td>
+            <td class="text-right">
+              <div class="market-upsdown"><img src="assets/images/lower-graph.png" alt="Success" width="116"
+                  height="40" /></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="aboutus-wrapper">
+  <div class="container">
+    <div class="aboutus-block  flex-wrap flex justify-between">
+      <div class="aboutus-infotext">
+        <h2 class="font-48 text-primary mb-32 font-inter">About Us</h2>
+        <div class="mb-40">
+          <h3 class="font-secondary font-28 mb-16 text-primary">Financial Success</h3>
+          <ul class="custom-ul">
+            <li>At Uvest4U, we’re passionate about empowering the next generation of investors.</li>
+            <li>Our diverse team of finance and technology experts have come together to create a platform that helps
+              you navigate the complex world of investing.</li>
+            <li>We believe that everyone deserves the opportunity to grow their money, regardless of their starting
+              point.</li>
+            <li>That’s why we’ve developed an AI-driven system that constantly monitors the market to uncover hidden
+              opportunities, all while keeping your interests and financial goals in mind.</li>
+          </ul>
+        </div>
+        <div class="flex gap-30">
+          <button mat-stroked-button color="primary" routerLink="/about-us">read more</button>
+          <button mat-flat-button color="primary" type="button">Register</button>
+        </div>
+      </div>
+      <div class="about-img">
+        <img src="assets/images/about-us.png" alt="About us" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="whychoose-wrapper">
+  <div class="container">
+    <div class="title-wrapper text-center mb-30 font-inter">
+      <h3 class="text-primary font-48 mb-24 fw-semibold">Why Choose Us</h3>
+      <p>Our powerful AI-driven platform empowers investors to make informed decisions and capitalize on the most
+        promising opportunities in the market. Here's how our AI software enhances your investment journey:</p>
+    </div>
+    <div class="flex flex-wrap justify-center service-wrapper">
+      <div class="service-box">
+        <div class="service-ic flex items-center justify-center mb-32">
+          <img src="assets/images/icons/analysis.svg" alt="Market Analysis" width="30" height="30" />
+        </div>
+        <div class="service-content font-inter text-lighter">
+          <h3 class="text-primary">Comprehensive Market Analysis:</h3>
+          <p>Every day, our sophisticated AI system scans over 70,000 symbols to identify activities with high
+            potential. This relentless search ensures that you never miss out on a golden opportunity.</p>
+        </div>
+      </div>
+      <div class="service-box">
+        <div class="service-ic flex items-center justify-center mb-32">
+          <img src="assets/images/icons/chatbox.svg" alt="Rigorous Opportunity Validation" width="30" height="30" />
+        </div>
+        <div class="service-content font-inter text-lighter">
+          <h3 class="text-primary">Rigorous Opportunity Validation:</h3>
+          <p>Our AI doesn't just find activities; it continuously assesses their validity. By cross-referencing multiple
+            criteria, we ensure that you only receive genuine, high-quality investment leads.</p>
+        </div>
+      </div>
+      <div class="service-box">
+        <div class="service-ic flex items-center justify-center mb-32">
+          <img src="assets/images/icons/investment.svg" alt="Refinement" width="30" height="30" />
+        </div>
+        <div class="service-content font-inter text-lighter">
+          <h3 class="text-primary">Ongoing Opportunity Refinement:</h3>
+          <p>As time passes, our AI narrows down the selection of investment opportunities, presenting you with only the
+            most promising prospects. This streamlined approach saves you time and effort, allowing you to focus on what
+            matters most – your investment decisions.</p>
+        </div>
+      </div>
+      <div class="service-box">
+        <div class="service-ic flex items-center justify-center mb-32">
+          <img src="assets/images/icons/money-bag.svg" alt="Investment Alerts" width="30" height="30" />
+        </div>
+        <div class="service-content font-inter text-lighter">
+          <h3 class="text-primary">Tailored Investment Alerts:</h3>
+          <p>Upon detecting a new opportunity, our AI promptly notifies you, providing the essential details you need.
+            As a valued subscriber, you can then access Uvest4u.com to evaluate each opportunity and conduct your
+            research to make confident decisions.</p>
+        </div>
+      </div>
+      <div class="service-box">
+        <div class="service-ic flex items-center justify-center mb-32">
+          <img src="assets/images/icons/benefits.svg" alt="Premium Benefits" width="30" height="30" />
+        </div>
+        <div class="service-content font-inter text-lighter">
+          <h3 class="text-primary">Exclusive Premium Benefits:</h3>
+          <p>For our Premium members, the AI support doesn't end there. Our software continuously tracks your
+            investments, alerting you of any changes in conditions and offering strategic suggestions. With this level
+            of insight, you'll always stay ahead of the curve.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="infowrapper">
+  <div class="container">
+    <div class="infobox dark-gradient flex justify-between maxw-1067 secondary-btn">
+      <p class="text-primary font-20 mb-0">Don't let lucrative opportunities pass you by join Uvest4U.com today and let
+        our AI-driven platform revolutionize your investment experience!</p>
+      <button mat-stroked-button color="primary">Start Investing</button>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial-section">
+  <div class="container">
+    <h2 class="font-48 text-primary text-center mb-50">Here 4 U</h2>
+    <div class="flex flex-wrap testimonial-wrapper gradient-bxwrap">
+      <div class="testimonial-box gradient-bx fw-light block">
+        <p>Welcome to Uvest4U, your go-to platform for AI-driven, do-it-yourself investing. We’re here to help young
+          individuals and new families take control of their financial future, without the hefty fees of traditional
+          investment advisors.</p>
+      </div>
+      <div class="testimonial-box gradient-bx fw-light block">
+        <p>Our user-friendly platform, powered by cutting-edge AI technology, levels the playing field by offering
+          investment insights previously reserved for professional money managers. With Uvest4U, you can save and grow
+          your money by making informed investment decisions on your own terms.</p>
+      </div>
+    </div>
+  </div>
+</section>

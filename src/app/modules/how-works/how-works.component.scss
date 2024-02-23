@@ -1,0 +1,88 @@
+.mb-100{
+  margin-bottom: var(--spacing70);
+  @media screen and (min-width: 768px) {
+    padding-bottom: 30px;
+  }
+}
+.carosuel-wrapper{
+  padding-bottom: 40px;
+  overflow: hidden;
+}
+.work-box{
+  width: 384px;
+  padding: var(--spacing40);
+  background: #0e0c15;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .bottom-boxwrap{
+    margin-top: auto;
+  }
+  @media screen and (max-width: 575.98px) {
+    width: 344px;
+  }
+  &:hover{
+    .gradient-overlay{
+      opacity: 0.4;
+    }  
+  }
+  .gradient-overlay{
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+}
+.explore-btn{
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.035em;
+  text-decoration: none;
+  font-family: 'Source Code Pro';
+  display: flex;
+  align-items: center;
+  &::after{
+    content: '';
+    display: block;
+    width: 10px;
+    height: 14px;
+    background: url('../../../assets/images/icons/right-mark.svg') no-repeat;
+    background-size: contain;
+    margin-left: 28px;
+  }
+}
+.workbx-ic{
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: #AC6AFF;
+  @media screen and (max-width: 767.98px) {
+    width: 38px;
+    height: 38px;
+  }
+}
+.gradient-bx{
+  &:before{
+    background-color: transparent;
+    z-index: 2;
+    background-image: url('../../../assets/images/gradient2.png');
+    height: 200px;
+  }
+  &::after{
+    top: 61px;
+    border-radius: 0 0 30px 30px;
+    border-top: 0;
+  }  
+}
+.register-section{
+  padding: 105px 0 35px;
+  @media screen and (max-width: 767.98px) {
+    padding-top: 70px;
+  }
+}
+.mb-40{
+  margin-bottom: var(--spacing40);
+}

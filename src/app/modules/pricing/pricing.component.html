@@ -1,0 +1,41 @@
+<section class="pricing-section">
+  <div class="container">
+    <nav class="breadcrumb-nav flex flex-wrap font-inter">
+      <a href="javascript:void(0)" routerLink="/">Home</a>
+      <span>Pricing</span>
+    </nav>
+    <div class="flex flex-wrap items-center pricing-wrap">
+      <div class="w-50 block">
+        <h1 class="font-48 mb-24 text-primary ">Affordable Plans for Every Investor</h1>
+        <p class="font-20">We understand that traditional investment advisors can be costly, which is why we’ve designed
+          our pricing plans with you in mind. Choose from our range of affordable membership options, each tailored to
+          fit your investment needs.</p>
+      </div>
+
+      <!-- TODO: Check once multiple data received from the API -->
+      @if(getPayPalPlan$ | async;as payplan){
+      @for(plan of plans; track plan.planId){
+
+      <div class="w-50">
+        <div class="pricing-plan gradient-bx maxw-448 ml-auto">
+          <span class="gradient-overlay"></span>
+          <h4 class="font-24 text-orange fw-normal mb-20">{{plan.planPrice}}/month</h4>
+          <span class="fw-light smalltext">{{plan.planName}}</span>
+          <ul class="plans-list fw-light">
+            <li>Dashboard</li>
+            <li>Signal Page</li>
+          </ul>
+          <button mat-stroked-button color="primary" (click)="selectedPlanType(plan.planId)">buy now</button>
+        </div>
+      </div>
+      }@empty {
+      <mat-progress-spinner [mode]="'indeterminate'"></mat-progress-spinner>
+      }
+      }@else{
+      <mat-progress-spinner [mode]="'indeterminate'" class="mt_loader"></mat-progress-spinner>
+      }
+
+
+    </div>
+  </div>
+</section>
