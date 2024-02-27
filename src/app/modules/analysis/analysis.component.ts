@@ -1,4 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { analisysParsed } from 'src/app/services/investor-type/investortype.interface';
 
@@ -8,10 +9,17 @@ import { analisysParsed } from 'src/app/services/investor-type/investortype.inte
   styleUrls: ['./analysis.component.scss']
 })
 export class AnalysisComponent {
-  private route = inject(Router)
-
+  private route = inject(Router);
+  private titleService = inject(Title);
   /**
+   *
    * stores Analysis detail
    */
-  public analisysDetail: analisysParsed = JSON.parse(this.route?.getCurrentNavigation()?.extras?.state?.analisys);
+  public analisysDetail = signal<analisysParsed>(
+    JSON.parse(this.route?.getCurrentNavigation()?.extras?.state?.analisys)
+  );
+
+  ngOnInit():void{
+    this.titleService.setTitle('Analysis')
+  }
 }

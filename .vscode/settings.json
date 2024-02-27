@@ -1,0 +1,61 @@
+{
+    /* Setup */
+    "[javascript]": {
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+      },
+      "editor.formatOnSave": true
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+      },
+      "editor.formatOnSave": true
+    },
+    "[json]": {
+      "editor.defaultFormatter": "vscode.json-language-features",
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+      },
+      "editor.formatOnSave": true
+    },
+    "[html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+      },
+      "editor.formatOnSave": true
+    },
+    "[html][javascript][json][typescript]": {
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+      }
+    },
+    /* Optional */
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "eslint.format.enable": false,
+    "editor.fontLigatures": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "indentRainbow.includedLanguages": ["typescript", "html", "json", "scss"],
+    "indentRainbow.indentSetter": {
+      "typescript": {
+        "tabSize": 2,
+        "insertSpaces": true
+      },
+      "ts": {
+        "tabSize": 2,
+        "insertSpaces": true
+      },
+      "json": {
+        "tabSize": 2,
+        "insertSpaces": true
+      },
+      "html": {
+        "tabSize": 2,
+        "insertSpaces": true
+      }
+    }
+  }

@@ -1,3 +1,5 @@
+@if(getLoggdIn$ | async){ }
+
 <div class="page-wrapper">
   <section class="pricing-section">
     <div class="container">
@@ -40,22 +42,28 @@
           @if(getBlogs$ | async; as blogs){ @if(blogs && blogs[0]){
           <h2>{{ blogs[0].title }}</h2>
           <span class="published-date fw-light">
-            {{ blogs[0].createDate | date : "d" | daySuffix }}
-            {{
-            blogs[0].createDate
-            | date
-            : "
-            MMM YYYY, hh:mm a"
-            }}</span>
+            {{ blogs[0].createDate | date : "d" | daySuffix }} {{
+            blogs[0].createDate | date : " MMM YYYY, hh:mm a" }}</span
+          >
           <p class="font-inter line-clamp2" [innerHTML]="blogs[0].message"></p>
-          <a class="" href="Javascript:void(0);" (click)="redirectToDetail(blogs[0], 0)">Read More</a>
+          <a
+            class=""
+            href="Javascript:void(0);"
+            (click)="redirectToDetail(blogs[0], 0)"
+            >Read More</a
+          >
           } }@else {
-          <mat-progress-spinner [mode]="'indeterminate'" class="mt_loader"></mat-progress-spinner>
+          <mat-progress-spinner
+            [mode]="'indeterminate'"
+            class="mt_loader"
+          ></mat-progress-spinner>
           }
         </div>
         <div class="newsbanner-image w-50">
-          <img src="assets/images/blog/{{ blogImages[0] }}"
-            alt="Global Stock Market Report: Mixed Results as US Reports Solid Growth, Fed and Economic Data Awaited" />
+          <img
+            src="assets/images/blog/{{ blogImages()[0] }}"
+            alt="Global Stock Market Report: Mixed Results as US Reports Solid Growth, Fed and Economic Data Awaited"
+          />
         </div>
       </div>
     </div>
@@ -69,26 +77,29 @@
       <div class="news-wrapper flex flex-wrap">
         @if(getBlogs$ | async; as blogs){ @for(blog of blogs;track blog.id){
         @if($index!=0){
-        <a href="javascript:void(0)" class="news-box" (click)="redirectToDetail(blog, $index)">
+        <a
+          href="javascript:void(0)"
+          class="news-box"
+          (click)="redirectToDetail(blog, $index)"
+        >
           <div class="news-bximg">
-            <img src="assets/images/blog/{{ blogImages[$index] }}"
-              alt="Global Stock Markets React to Solid U.S. Growth" />
+            <img
+              src="assets/images/blog/{{ blogImages()[$index] }}"
+              alt="Global Stock Markets React to Solid U.S. Growth"
+            />
           </div>
           <div class="news-boxcontent font-inter block">
-            <span class="published-date">{{
-              blog.createDate
-              ? (blog.createDate | date : "d" | daySuffix)
-              : ""
-              }}
-              {{ blog.createDate | date : " MMM YYYY, hh:mm a" }}</span>
+            <span class="published-date"
+              >{{ blog.createDate ? (blog.createDate | date : "d" | daySuffix) :
+              "" }} {{ blog.createDate | date : " MMM YYYY, hh:mm a" }}</span
+            >
             <h6 class="font-20 text-white fw-semibold news-title line-clamp2">
               {{ blog.title }}
             </h6>
             <p class="line-clamp2 text-lighter" [innerHTML]="blog.message"></p>
           </div>
         </a>
-        }
-        }@empty {
+        } }@empty {
         <mat-progress-spinner [mode]="'indeterminate'"></mat-progress-spinner>
         } }
       </div>

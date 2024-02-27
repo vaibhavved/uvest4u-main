@@ -3,6 +3,7 @@ import {HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest} from 
 import {Router} from "@angular/router";
 import {Observable, of, throwError} from "rxjs";
 import {catchError, switchMap, take} from "rxjs/operators";
+import { environment } from "src/environments/environment";
 
 @Injectable()
 export class HttpAuthInterceptService implements HttpInterceptor {
@@ -21,7 +22,7 @@ export class HttpAuthInterceptService implements HttpInterceptor {
         if (!hasContentType) {
             newHeaders = newHeaders.append('Content-Type', 'application/json; charset=utf-8');
         }
-        let basicAuthRequest = request.clone({headers: newHeaders});
+        let basicAuthRequest = request.clone({headers: newHeaders,url:`${environment.apiBaseUrl}${request.url}`});
         let hasSkipAuth: boolean = request.headers.has('Skip-auth');
 
         if (!this.inflightAuthRequest) {

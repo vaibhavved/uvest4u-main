@@ -8,12 +8,11 @@
       <div class="investment-contentwrap contentarea block">
         <img src="assets/images/img2.png" alt="Investment Idea" />
         <h1>Free Daily Investment Idea</h1>
-        <h2>{{dailyBlogDetail?.title}}</h2>
-        <span>{{dailyBlogDetail?.createDate}}</span>
-        <div [innerHTML]="dailyBlogSplited[0]?dailyBlogSplited[0]:dailyBlogDetail.message"></div>
-        <!-- <p>UMB Financial Corp (UMBF) recently reported its fourth-quarter earnings and surpassed both earnings and revenue estimates. The company reported a net income of $70.9 million for the quarter, which exceeded expectations. Additionally, UMBF's revenue came in at $317.8 million, beating estimates as well. This strong performance indicates that UMBF is in a healthy financial position and is capable of generating solid returns for investors.</p>
-        <p>In terms of fundamental analysis, UMBF's solid Q4 results can be attributed to its diversified business model and strong loan growth. The company operates in various segments, including commercial banking, institutional banking, personal banking, and healthcare services. This diversification helps UMBF mitigate risks and capitalize on opportunities in different sectors of the economy. Furthermore, the company's loan portfolio has been growing steadily, which is a positive sign for its future earnings potential.</p>
-        <p>From a technical standpoint, UMBF's stock price has been trending upwards over the past year, with only minor pullbacks along the way. This indicates that there is strong buying interest in the stock and that investors have confidence in the company's prospects. Additionally, the stock's recent earnings beat could further drive investor sentiment and push the stock price higher.</p> -->
+        <h2>{{dailyBlogDetail()?.title}}</h2>
+        <span>{{dailyBlogDetail()?.createDate}}</span>
+        <div
+          [innerHTML]="dailyBlogSplited()[0]?dailyBlogSplited()[0]:dailyBlogDetail().message"
+        ></div>
       </div>
     </div>
   </section>
@@ -22,14 +21,15 @@
     <div class="container">
       <div class="resources-box flex flex-wrap">
         <div class="resourcebx-left">
-          <h2 class="font-48 fw-semibold mb-40">Sources for My Research Include the Following:</h2>
+          <h2 class="font-48 fw-semibold mb-40">
+            Sources for My Research Include the Following:
+          </h2>
           <div class="resource-image">
             <img src="assets/images/banner/image-7.jpg" alt="My Research" />
           </div>
         </div>
         <div class="resourcebx-right flex items-center">
-          <ol>
-          </ol>
+          <ol></ol>
         </div>
       </div>
     </div>
@@ -39,13 +39,19 @@
     <div class="container">
       <div class="infobox dark-gradient">
         <div class="block text-primary">
-          <p>The information on the <a href="javascript:void(0)">Uvest4u.com</a> website and inside our platform is intended for
-            educational purposes and is not to be construed as investment advice. Trading the financial markets carries
-            a high level of risk and may not be suitable for all investors. Before trading, you should carefully
-            consider your investment objectives, experience, and risk appetite. Only trade with money you are prepared
-            to lose. Like any investment, there is a possibility that you could sustain losses of some or all of your
-            investment whilst trading. You should seek independent advice before trading if you have any doubts. Past
-            performance in the markets is not a reliable indicator of future performance.</p>
+          <p>
+            The information on the <a href="javascript:void(0)">Uvest4u.com</a
+            > website and inside our platform is intended for educational
+            purposes and is not to be construed as investment advice. Trading
+            the financial markets carries a high level of risk and may not be
+            suitable for all investors. Before trading, you should carefully
+            consider your investment objectives, experience, and risk appetite.
+            Only trade with money you are prepared to lose. Like any investment,
+            there is a possibility that you could sustain losses of some or all
+            of your investment whilst trading. You should seek independent
+            advice before trading if you have any doubts. Past performance in
+            the markets is not a reliable indicator of future performance.
+          </p>
         </div>
       </div>
     </div>

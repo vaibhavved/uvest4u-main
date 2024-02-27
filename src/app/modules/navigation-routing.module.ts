@@ -29,6 +29,7 @@ const routes: Routes = [
   { path: 'investment-idea', component: InvestmentIdeaComponent, pathMatch: 'full', canActivate:[keepStorageGuardGuard] },
   { path: 'news', component: NewsComponent, pathMatch: 'full', canActivate:[keepStorageGuardGuard] },
   { path: 'news/:year/:month/:day/:title', component: NewsDetailComponent, pathMatch: 'full' , canActivate:[keepStorageGuardGuard]},
+  { path: 'newshistory/:id/:title', component: NewsDetailComponent, pathMatch: 'full' , canActivate:[keepStorageGuardGuard]},
   { path: 'how-works', component: HowWorksComponent, canActivate:[keepStorageGuardGuard]},
   { path: 'analysis', component: AnalysisComponent , canActivate:[keepStorageGuardGuard]},
   { path: 'investor-type', component: InvestorTypeComponent, canActivate:[keepStorageGuardGuard] },

@@ -1,4 +1,5 @@
-import { Component, ElementRef, inject } from '@angular/core';
+import { Component, ElementRef, inject, signal } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 
@@ -8,28 +9,33 @@ import { filter } from 'rxjs';
   styleUrls: ['./investment-idea.component.scss']
 })
 export class InvestmentIdeaComponent {
+  titleService = inject(Title);
+
   route = inject(Router);
-  el = inject(ElementRef)
+
   /**
    * Splits Message and links
-   * 
+   *
    */
-  public dailyBlogSplited = this.route.getCurrentNavigation()?.extras?.state?.blogDetail?.message.split('Sources for my research include the following:');
+  public dailyBlogSplited = signal(
+    this.route
+      .getCurrentNavigation()
+      ?.extras?.state?.blogDetail?.message.split('Sources for my research include the following:')
+  );
 
   /**
    * Gives Dailyblog Detail
    */
-  public dailyBlogDetail = this.route.getCurrentNavigation()?.extras?.state?.blogDetail;
+  public dailyBlogDetail = signal(this.route.getCurrentNavigation()?.extras?.state?.blogDetail);
 
   ngOnInit(): void {
-    this.route.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe(() => {
-        window.scrollTo(0, 0);
-      });
-    if (this.dailyBlogSplited[1]) {
+    this.titleService.setTitle('Free Daily Investment Idea')
+    this.route.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(() => {
+      window.scrollTo(0, 0);
+    });
+    if (this.dailyBlogSplited()[1]) {
       var tempContainer = document.createElement('div');
-      tempContainer.innerHTML = this.dailyBlogSplited[1];
+      tempContainer.innerHTML = this.dailyBlogSplited()[1];
 
       // Find all anchor elements within the temporary container
       var anchorElements = tempContainer.querySelectorAll('a');
@@ -50,6 +56,5 @@ export class InvestmentIdeaComponent {
         ele.innerHTML = tempContainer.innerHTML;
       }
     }
-
   }
 }

@@ -7,40 +7,70 @@
       </nav>
       <div class="mb-50">
         <h1 class="mb-30">What Type of Investor Are You?</h1>
-        <p>Building a balanced portfolio requires understanding your comfort with risk as well as the time you have to
-          invest before you need access to your money. Understanding if you are Conservative, Moderate or Aggressive
-          Investor helps determine how to allocate your money. Use our Al engine to determine if you are a Conservative,
-          Moderate or Aggressive Investor.</p>
+        <p>
+          Building a balanced portfolio requires understanding your comfort with
+          risk as well as the time you have to invest before you need access to
+          your money. Understanding if you are Conservative, Moderate or
+          Aggressive Investor helps determine how to allocate your money. Use
+          our Al engine to determine if you are a Conservative, Moderate or
+          Aggressive Investor.
+        </p>
       </div>
-      <div class="investor-infobox" [ngClass]="isItemInLocalStorage?'active':''">
+      <div
+        class="investor-infobox"
+        [ngClass]="isItemInLocalStorage()?'active':''"
+      >
         <div>
-          @if(getQuestions$ | async; as questionData){
-          @if(questionData && questionData.questions) {
-          @for(question of questionData.questions;track question.id){
-          <div class="steps-wizard flex" [ngClass]="statusSignal()[$index].class">
+          @if(getQuestions$ | async; as questionData){ @if(questionData &&
+          questionData.questions) { @for(question of
+          questionData.questions;track question.id){
+          <div
+            class="steps-wizard flex"
+            [ngClass]="statusSignal()[$index].class"
+          >
             <div class="steps-box" (click)="openCurrentQuestion($index)">
               <span class="step-count">{{$index+1}}</span>
               <div class="edit-btn">
                 <span class="info-status-content">
                   @if(statusSignal()[$index].status =='EDIT'){
-                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg
+                    width="13"
+                    height="13"
+                    viewBox="0 0 13 13"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
                     <g clip-path="url(#clip0_836_918)">
                       <path
                         d="M2.33975 10.9461C2.46975 10.9461 2.49575 10.9331 2.61275 10.9071L4.95275 10.4391C5.19975 10.3741 5.44675 10.2571 5.64175 10.0621L11.3097 4.39408C12.1807 3.52308 12.1807 2.02808 11.3097 1.15708L10.8287 0.650076C9.95775 -0.220924 8.44975 -0.220924 7.57875 0.650076L1.91075 6.33108C1.72875 6.51308 1.59875 6.77308 1.53375 7.02008L1.03975 9.38608C0.974748 9.82808 1.10475 10.2571 1.41675 10.5691C1.66375 10.8161 2.02775 10.9461 2.33975 10.9461ZM2.78175 7.26708L8.44975 1.58608C8.82675 1.20908 9.51575 1.20908 9.87975 1.58608L10.3737 2.08008C10.8157 2.52208 10.8157 3.14608 10.3737 3.57508L4.71875 9.25608L2.31375 9.65908L2.78175 7.26708Z"
-                        fill="url(#paint0_linear_836_918)" />
+                        fill="url(#paint0_linear_836_918)"
+                      />
                       <path
                         d="M11.2575 11.752H1.66355C1.28655 11.752 1.03955 11.999 1.03955 12.376C1.03955 12.753 1.35155 13 1.66355 13H11.2055C11.5825 13 11.8945 12.753 11.8945 12.376C11.8815 11.999 11.5695 11.752 11.2575 11.752Z"
-                        fill="url(#paint1_linear_836_918)" />
+                        fill="url(#paint1_linear_836_918)"
+                      />
                     </g>
                     <defs>
-                      <linearGradient id="paint0_linear_836_918" x1="13.7346" y1="5.3921" x2="-1.26719" y2="4.93538"
-                        gradientUnits="userSpaceOnUse">
+                      <linearGradient
+                        id="paint0_linear_836_918"
+                        x1="13.7346"
+                        y1="5.3921"
+                        x2="-1.26719"
+                        y2="4.93538"
+                        gradientUnits="userSpaceOnUse"
+                      >
                         <stop stop-color="#635371" />
                         <stop offset="0.485507" stop-color="#EDEDF2" />
                         <stop offset="0.984375" stop-color="#635371" />
                       </linearGradient>
-                      <linearGradient id="paint1_linear_836_918" x1="13.6524" y1="12.3669" x2="-0.269227" y2="8.67712"
-                        gradientUnits="userSpaceOnUse">
+                      <linearGradient
+                        id="paint1_linear_836_918"
+                        x1="13.6524"
+                        y1="12.3669"
+                        x2="-0.269227"
+                        y2="8.67712"
+                        gradientUnits="userSpaceOnUse"
+                      >
                         <stop stop-color="#635371" />
                         <stop offset="0.485507" stop-color="#EDEDF2" />
                         <stop offset="0.984375" stop-color="#635371" />
@@ -53,135 +83,43 @@
                   }
                 </span>
                 <span class="info-status-content">
-                  {{windowWidth<=767 && statusSignal()[$index].status=='EDIT' ?'':statusSignal()[$index].status}}</span>
+                  {{windowWidthCheck() && statusSignal()[$index].status=='EDIT'
+                  ?'':statusSignal()[$index].status}}</span
+                >
               </div>
             </div>
             <div class="steps-contentwrap">
               <div class="steps-contentblock">
                 <span>{{question.description}}</span>
-                <mat-radio-group aria-label="Select an option" name="{{question.id}}" [(ngModel)]="answers[$index]"
-                  (change)="changeStatusSignal($index,$event.value)">
+                <mat-radio-group
+                  aria-label="Select an option"
+                  name="{{question.id}}"
+                  [(ngModel)]="answers()[$index]"
+                  (change)="changeStatusSignal($index,$event.value)"
+                >
                   @for(answer of question.answers;track answer.id){
-                  <mat-radio-button [value]="answer.description">{{answer.description}}</mat-radio-button>
+                  <mat-radio-button [value]="answer.description"
+                    >{{answer.description}}</mat-radio-button
+                  >
                   }
                 </mat-radio-group>
               </div>
             </div>
           </div>
-          }
-          }
-          }@else {
+          } } }@else {
           <mat-progress-spinner [mode]="'indeterminate'"></mat-progress-spinner>
           }
-          <!-- 
-          <div class="steps-wizard flex current">
-            <div class="steps-box">
-              <span class="step-count">2</span>
-              <span class="info-status">ACTIVE</span>
-            </div>
-            <div class="steps-contentwrap">
-              <div class="steps-contentblock">
-                <span>How do you feel about the current state of the global economy?</span>
-                <mat-radio-group aria-label="Select an option">
-                  <mat-radio-button value="1">a) I believe they are necessary for the long-term sustainability of the
-                    planet.</mat-radio-button>
-                  <mat-radio-button value="2">b) I think they can hinder innovation and economic
-                    growth.</mat-radio-button>
-                  <mat-radio-button value="2">c) I am indifferent towards their impact.</mat-radio-button>
-                </mat-radio-group>
-              </div>
-            </div>
-          </div>
-          <div class="steps-wizard flex">
-            <div class="steps-box">
-              <span class="step-count">3</span>
-              <span class="info-status">NEXT</span>
-            </div>
-            <div class="steps-contentwrap">
-              <div class="steps-contentblock">
-                <span>How do you feel about the current state of the global economy?</span>
-                <mat-radio-group aria-label="Select an option">
-                  <mat-radio-button value="1">a) I believe they are necessary for the long-term sustainability of the
-                    planet.</mat-radio-button>
-                  <mat-radio-button value="2">b) I think they can hinder innovation and economic
-                    growth.</mat-radio-button>
-                </mat-radio-group>
-              </div>
-            </div>
-          </div>
-          <div class="steps-wizard flex">
-            <div class="steps-box">
-              <span class="step-count">4</span>
-              <span class="info-status">NEXT</span>
-            </div>
-            <div class="steps-contentwrap">
-              <div class="steps-contentblock">
-                <span>How do you feel about the current state of the global economy?</span>
-                <mat-radio-group aria-label="Select an option">
-                  <mat-radio-button value="1">a) I believe they are necessary for the long-term sustainability of the
-                    planet.</mat-radio-button>
-                  <mat-radio-button value="2">b) I think they can hinder innovation and economic
-                    growth.</mat-radio-button>
-                </mat-radio-group>
-              </div>
-            </div>
-          </div>
-          <div class="steps-wizard flex">
-            <div class="steps-box">
-              <span class="step-count">5</span>
-              <span class="info-status">NEXT</span>
-            </div>
-            <div class="steps-contentwrap">
-              <div class="steps-contentblock">
-                <span>How do you feel about the current state of the global economy?</span>
-                <mat-radio-group aria-label="Select an option">
-                  <mat-radio-button value="1">a) I believe they are necessary for the long-term sustainability of the
-                    planet.</mat-radio-button>
-                  <mat-radio-button value="2">b) I think they can hinder innovation and economic
-                    growth.</mat-radio-button>
-                </mat-radio-group>
-              </div>
-            </div>
-          </div>
-          <div class="steps-wizard flex">
-            <div class="steps-box">
-              <span class="step-count">6</span>
-              <span class="info-status">NEXT</span>
-            </div>
-            <div class="steps-contentwrap">
-              <div class="steps-contentblock">
-                <span>How do you feel about the current state of the global economy?</span>
-                <mat-radio-group aria-label="Select an option">
-                  <mat-radio-button value="1">a) I believe they are necessary for the long-term sustainability of the
-                    planet.</mat-radio-button>
-                  <mat-radio-button value="2">b) I think they can hinder innovation and economic
-                    growth.</mat-radio-button>
-                </mat-radio-group>
-              </div>
-            </div>
-          </div>
-          <div class="steps-wizard flex">
-            <div class="steps-box">
-              <span class="step-count">7</span>
-              <span class="info-status">FINAL</span>
-            </div>
-            <div class="steps-contentwrap">
-              <div class="steps-contentblock">
-                <span>How do you feel about the current state of the global economy?</span>
-                <mat-radio-group aria-label="Select an option">
-                  <mat-radio-button value="1">a) I believe they are necessary for the long-term sustainability of the
-                    planet.</mat-radio-button>
-                  <mat-radio-button value="2">b) I think they can hinder innovation and economic
-                    growth.</mat-radio-button>
-                </mat-radio-group>
-              </div>
-            </div>
-          </div> -->
         </div>
         <div class="flex flex-wrap justify-center analysis-btns secondary-btn">
           <a mat-flat-button color="primary" routerLink="/home">back</a>
-          <a mat-stroked-button href="javascript:void(0)" (click)="allQuestionCheck() && saveResponse()" color="primary"
-            [disabled]="!allQuestionCheck()">Submit</a>
+          <a
+            mat-stroked-button
+            href="javascript:void(0)"
+            (click)="allQuestionCheck() && saveResponse()"
+            color="primary"
+            [disabled]="!allQuestionCheck()"
+            >Submit</a
+          >
         </div>
       </div>
     </div>
@@ -190,13 +128,19 @@
     <div class="container">
       <div class="infobox dark-gradient">
         <div class="block text-primary">
-          <p>The information on the <a href="javascript:void(0)">Uvest4u.com</a> website and inside our platform is
-            intended for educational purposes and is not to be construed as investment advice. Trading the financial
-            markets carries a high level of risk and may not be suitable for all investors. Before trading, you should
-            carefully consider your investment objectives, experience, and risk appetite. Only trade with money you are
-            prepared to lose. Like any investment, there is a possibility that you could sustain losses of some or all
-            of your investment whilst trading. You should seek independent advice before trading if you have any doubts.
-            Past performance in the markets is not a reliable indicator of future performance.</p>
+          <p>
+            The information on the <a href="javascript:void(0)">Uvest4u.com</a
+            > website and inside our platform is intended for educational
+            purposes and is not to be construed as investment advice. Trading
+            the financial markets carries a high level of risk and may not be
+            suitable for all investors. Before trading, you should carefully
+            consider your investment objectives, experience, and risk appetite.
+            Only trade with money you are prepared to lose. Like any investment,
+            there is a possibility that you could sustain losses of some or all
+            of your investment whilst trading. You should seek independent
+            advice before trading if you have any doubts. Past performance in
+            the markets is not a reliable indicator of future performance.
+          </p>
         </div>
       </div>
     </div>

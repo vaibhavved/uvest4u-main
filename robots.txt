@@ -1,0 +1,11 @@
+# Allow all search engines to access all content
+User-agent: *
+Disallow:
+
+# Disallow search engines from accessing specific folders
+# User-agent: *
+# Disallow: /admin/
+# Disallow: /private/
+
+# Sitemap: Specify the path to your sitemap
+Sitemap: https://uvest4u.com/api/sitemap
